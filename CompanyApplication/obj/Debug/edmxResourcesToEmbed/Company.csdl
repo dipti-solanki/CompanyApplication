@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AssignEmployee">
+    <Key>
+      <PropertyRef Name="AssignEmployeeId" />
+    </Key>
+    <Property Name="AssignEmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="AssignDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_AssignEmployees_Employees1" FromRole="AssignEmployees" ToRole="Employees" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_AssignEmployees_Projects" FromRole="AssignEmployees" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="BusinessUnit">
+    <Key>
+      <PropertyRef Name="BusinessUnitId" />
+    </Key>
+    <Property Name="BusinessUnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessUnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BusinessUnitDetail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_BusinessUnits" FromRole="BusinessUnits" ToRole="Employees" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_BusinessUnits" FromRole="BusinessUnits" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessUnitId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AssignEmployees" Relationship="Self.FK_AssignEmployees_Employees1" FromRole="Employees" ToRole="AssignEmployees" />
+    <NavigationProperty Name="BusinessUnit" Relationship="Self.FK_Employees_BusinessUnits" FromRole="Employees" ToRole="BusinessUnits" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessUnitId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectDetail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeadlineDate" Type="DateTimeOffset" Nullable="false" Precision="7" />
+    <NavigationProperty Name="AssignEmployees" Relationship="Self.FK_AssignEmployees_Projects" FromRole="Projects" ToRole="AssignEmployees" />
+    <NavigationProperty Name="BusinessUnit" Relationship="Self.FK_Projects_BusinessUnits" FromRole="Projects" ToRole="BusinessUnits" />
+  </EntityType>
+  <Association Name="FK_AssignEmployees_Employees1">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="AssignEmployees" Type="Self.AssignEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="AssignEmployees">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignEmployees_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+    <End Role="AssignEmployees" Type="Self.AssignEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="AssignEmployees">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_BusinessUnits">
+    <End Role="BusinessUnits" Type="Self.BusinessUnit" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="BusinessUnitId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="BusinessUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_BusinessUnits">
+    <End Role="BusinessUnits" Type="Self.BusinessUnit" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="BusinessUnitId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="BusinessUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CompanyDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AssignEmployees" EntityType="Self.AssignEmployee" />
+    <EntitySet Name="BusinessUnits" EntityType="Self.BusinessUnit" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <AssociationSet Name="FK_AssignEmployees_Employees1" Association="Self.FK_AssignEmployees_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="AssignEmployees" EntitySet="AssignEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignEmployees_Projects" Association="Self.FK_AssignEmployees_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="AssignEmployees" EntitySet="AssignEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_BusinessUnits" Association="Self.FK_Employees_BusinessUnits">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_BusinessUnits" Association="Self.FK_Projects_BusinessUnits">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

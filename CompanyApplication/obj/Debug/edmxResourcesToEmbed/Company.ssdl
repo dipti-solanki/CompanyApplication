@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AssignEmployees">
+    <Key>
+      <PropertyRef Name="AssignEmployeeId" />
+    </Key>
+    <Property Name="AssignEmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="AssignDesignation" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessUnits">
+    <Key>
+      <PropertyRef Name="BusinessUnitId" />
+    </Key>
+    <Property Name="BusinessUnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessUnitName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BusinessUnitDetail" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessUnitId" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessUnitId" Type="int" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectDetail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeadlineDate" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AssignEmployees_Employees1">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="AssignEmployees" Type="Self.AssignEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="AssignEmployees">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignEmployees_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+    <End Role="AssignEmployees" Type="Self.AssignEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="AssignEmployees">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_BusinessUnits">
+    <End Role="BusinessUnits" Type="Self.BusinessUnits" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="BusinessUnitId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="BusinessUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_BusinessUnits">
+    <End Role="BusinessUnits" Type="Self.BusinessUnits" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="BusinessUnitId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="BusinessUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CompanyDbModelStoreContainer">
+    <EntitySet Name="AssignEmployees" EntityType="Self.AssignEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessUnits" EntityType="Self.BusinessUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AssignEmployees_Employees1" Association="Self.FK_AssignEmployees_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="AssignEmployees" EntitySet="AssignEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignEmployees_Projects" Association="Self.FK_AssignEmployees_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="AssignEmployees" EntitySet="AssignEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_BusinessUnits" Association="Self.FK_Employees_BusinessUnits">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_BusinessUnits" Association="Self.FK_Projects_BusinessUnits">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
