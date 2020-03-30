@@ -1,0 +1,13 @@
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.exe
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.deps.json
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.runtimeconfig.json
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.runtimeconfig.dev.json
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.dll
+C:\Users\DIPTI\source\repos\FileOperation\bin\Debug\netcoreapp3.1\FileOperation.pdb
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.csprojAssemblyReference.cache
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.csproj.CoreCompileInputs.cache
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.AssemblyInfoInputs.cache
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.AssemblyInfo.cs
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.dll
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.pdb
+C:\Users\DIPTI\source\repos\FileOperation\obj\Debug\netcoreapp3.1\FileOperation.genruntimeconfig.cache
