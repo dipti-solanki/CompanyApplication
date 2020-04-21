@@ -1,0 +1,9 @@
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\bin\Debug\ClrPractice.dacpac
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\bin\Debug\ClrPractice.dll
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\bin\Debug\ClrPractice.pdb
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\ClrPractice.dll
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\ClrPractice.pdb
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\Model.xml
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\refactor.xml
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\postdeploy.sql
+C:\Users\Akash Rupareliya\source\repos\ClrPractice\obj\Debug\predeploy.sql

@@ -1,0 +1,6 @@
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\bin\Debug\ClrDemo.dacpac
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\bin\Debug\ClrDemo.dll
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\bin\Debug\ClrDemo.pdb
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\obj\Debug\ClrDemo.sqlprojAssemblyReference.cache
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\obj\Debug\ClrDemo.dll
+C:\Users\Akash Rupareliya\source\repos\ClrDemo\obj\Debug\ClrDemo.pdb
