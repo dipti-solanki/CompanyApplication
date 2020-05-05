@@ -1,0 +1,11 @@
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.exe
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.deps.json
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.runtimeconfig.json
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.runtimeconfig.dev.json
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.dll
+C:\Users\radix\source\repos\LinQ\bin\Debug\netcoreapp3.1\LinQ.pdb
+C:\Users\radix\source\repos\LinQ\obj\Debug\netcoreapp3.1\LinQ.csprojAssemblyReference.cache
+C:\Users\radix\source\repos\LinQ\obj\Debug\netcoreapp3.1\LinQ.AssemblyInfoInputs.cache
+C:\Users\radix\source\repos\LinQ\obj\Debug\netcoreapp3.1\LinQ.AssemblyInfo.cs
+C:\Users\radix\source\repos\LinQ\obj\Debug\netcoreapp3.1\LinQ.dll
+C:\Users\radix\source\repos\LinQ\obj\Debug\netcoreapp3.1\LinQ.pdb
